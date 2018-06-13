@@ -1,8 +1,16 @@
-<h1>🅱OGGLE</h1>
+<div class="container mx-auto pt-6">
+  <h1 class="text-center text-orange leading-loose cursor-pointer active ember-view">🅱OGGLE</h1>
+  <nav class="text-center mt-4">
+    {{#link-to "index" class="inline-block text-black hover:text-orange mx-3"}}
+      Play
+    {{/link-to}}
+    {{#link-to "rules" class="inline-block text-black hover:text-orange mx-3"}}
+      Rules
+    {{/link-to}}
+  </nav>
 
-<ul>
-  <li>{{#link-to "index"}}Play{{/link-to}}</li>
-  <li>{{#link-to "rules"}}Rules{{/link-to}}</li>
-</ul>
+  <div class="mx-auto sm:w-full md:w-1/2 flex flex-col bg-grey-lighter p-2 my-6 shadow-md rounded">
+    {{outlet}}
+  </div>
+</div>
 
-{{outlet}}

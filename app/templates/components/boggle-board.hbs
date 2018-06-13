@@ -1,10 +1,14 @@
-<div class="board">
+<div class="board text-center">
   {{#each letters as |row|}}
-    <div class="row">
+    <div class="row py-1">
       {{#each row as |letter|}}
           <button
-            style="{{if letter.isActive 'background-color:red;'}}"
-            class="{{if letter.isActive 'active'}}" {{action "selectLetter" letter}}>{{letter.value}}</button>
+            class="hover:bg-orange-light
+              text-white text-lg font-bold
+              py-2 px-4 border-b-4 border-orange-dark
+              hover:border-orange rounded {{if letter.isActive 'active bg-red' 'bg-orange'}}"
+            data-selected={{letter.isActive}}
+            {{action "selectLetter" letter}}>{{letter.value}}</button>
       {{/each}}
     </div>
   {{/each}}
