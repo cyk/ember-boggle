@@ -1,0 +1,11 @@
+<div class="board">
+  {{#each letters as |row|}}
+    <div class="row">
+      {{#each row as |letter|}}
+          <button
+            style="{{if letter.isActive 'background-color:red;'}}"
+            class="{{if letter.isActive 'active'}}" {{action "selectLetter" letter}}>{{letter.value}}</button>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
