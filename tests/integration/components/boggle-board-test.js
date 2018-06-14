@@ -12,10 +12,10 @@ module('Integration | Component | boggle-board', function(hooks) {
 
     await render(hbs`{{boggle-board}}`);
 
-    assert.equal(this.element.querySelectorAll('button').length, 4, 'has four letters');
+    assert.equal(this.element.querySelectorAll('button').length, 16, 'has 16 letters');
   });
 
-  test('letter becomes active when clicking', async function(assert) {
+  test('letter becomes selected when clicking', async function(assert) {
 
     await render(hbs`{{boggle-board}}`);
 
@@ -23,10 +23,10 @@ module('Integration | Component | boggle-board', function(hooks) {
 
     letterBtn.click();
 
-    assert.ok(letterBtn.classList.contains('active'), 'button is active');
+    assert.ok(letterBtn.dataset.selected !== undefined, 'button is selected');
 
     letterBtn.click();
 
-    assert.notOk(letterBtn.classList.contains('active'), 'button is not active');
+    assert.notOk(letterBtn.dataset.selected !== undefined, 'button is not selected');
   })
 });

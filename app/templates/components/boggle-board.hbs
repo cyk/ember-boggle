@@ -1,14 +1,14 @@
 <div class="board text-center">
-  {{#each letters as |row|}}
+  {{#each letters as |row rowIndex|}}
     <div class="row py-1">
-      {{#each row as |letter|}}
+      {{#each row as |letter columnIndex|}}
           <button
-            class="hover:bg-orange-light
+            class="hover:bg-red
               text-white text-lg font-bold
               py-2 px-4 border-b-4 border-orange-dark
-              hover:border-orange rounded {{if letter.isActive 'active bg-red' 'bg-orange'}}"
-            data-selected={{letter.isActive}}
-            {{action "selectLetter" letter}}>{{letter.value}}</button>
+              hover:border-orange rounded {{if letter.isSelected 'bg-red' 'bg-orange'}}"
+            data-selected={{letter.isSelected}}
+            {{action "selectLetter" letter columnIndex rowIndex}}>{{letter.value}}</button>
       {{/each}}
     </div>
   {{/each}}
